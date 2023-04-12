@@ -104,7 +104,35 @@ export function newClientTR(client) {
       contactsWrap.append(btnWrap);
       arr.push(btnWrap);
 
-      c
+      switch (obj.type) {
+        case 'Phone':
+          contactBtn.classList.add('phone');
+          linkType = `tel:${obj.value}`;
+          obj.value = `+56(9) ${obj.value}`;
+          break;
+
+        case 'Email':
+          contactBtn.classList.add('email');
+          linkType = `mailto:${obj.value}`;
+          break;
+
+        case 'VK':
+          contactBtn.classList.add('vk');
+          linkType = obj.value;
+          break;
+        case 'FB':
+          contactBtn.classList.add('fb');
+          linkType = obj.value;
+          break;
+
+        case 'Other':
+          contactBtn.classList.add('other');
+          linkType = obj.value;
+          break;
+
+        default:
+          break;
+      }
 
       //add tooltip from tippy
       tippy(contactBtn, {
