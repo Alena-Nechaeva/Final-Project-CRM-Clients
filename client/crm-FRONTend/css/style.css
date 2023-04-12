@@ -1,0 +1,1134 @@
+html {
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+img {
+  max-width: 100%;
+}
+
+@font-face {
+  font-family: "OpenSans";
+  src: local("OpenSans-Regular"),
+    url("../fonts/OpenSans-Regular.woff2") format("woff2"),
+    url("../fonts/OpenSans-Regular.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "OpenSans";
+  src: local("OpenSans-SemiBold"),
+    url("../fonts/OpenSans-SemiBold.woff2") format("woff2"),
+    url("../fonts/OpenSans-SemiBold.woff") format("woff");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "OpenSans";
+  src: local("OpenSans-Bold"),
+    url("../fonts/OpenSans-Bold.woff2") format("woff2"),
+    url("../fonts/OpenSans-Bold.woff") format("woff");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --black-text: #333333;
+  --violet: #9873FF;
+  --violet2: #8052FF;
+  --grey-text: #B0B0B0;
+  --grey-contact: #E7E5EB;
+  --contact-block: rgb(200, 197, 209, 0.3);
+  --cont-border: #C8C5D1;
+  --cont-list-bg: #F4F3F6;
+  --body-bg: #E5E5E5;
+  --white: #fff;
+  --red: #F06A4D;
+  --modal-bg: #00000080;
+  --modal-line: rgb(200, 197, 209, 0.5);
+}
+
+body {
+  font-family: "OpenSans", sans-serif;
+  color: var(--black-text);
+  min-width: 320px;
+  /* overflow: auto; */
+  background-color: var(--body-bg);
+}
+
+/*                                    global*/
+.flex {
+  display: flex;
+  align-items: center;
+}
+
+.container {
+  margin: 0 auto;
+  padding: 0 20px;
+  max-width: 1024px;
+}
+
+.btn-reset {
+  border: none;
+  outline: none;
+  padding: 0;
+  background-color: transparent;
+  cursor: pointer;
+  color: var(--black-text);
+}
+
+.list-reset {
+  border: none;
+  outline: none;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+/*                                    header */
+.header {
+  background-color: var(--white);
+  padding-top: 23px;
+  padding-bottom: 23px;
+  box-shadow: 0px 9px 27px rgba(176, 190, 197, 0.32), 0px 3px 5px rgba(176, 190, 197, 0.32);
+  margin-bottom: 40px;
+}
+
+.logo-link {
+  margin-right: 50px;
+}
+
+.search {
+  padding: 12px 16px;
+  width: 60%;
+  border: 1px solid rgba(51, 51, 51, 0.2);
+  transition: border 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+@media (max-width: 750px) {
+  .search {
+    display: none;
+  }
+
+  .header__content {
+    justify-content: center;
+  }
+
+  .logo-link {
+    margin: 0;
+  }
+}
+
+.search:focus-visible {
+  border: 1px solid var(--violet);
+  outline: none;
+}
+
+.search:focus,
+.search:hover {
+  box-shadow: 0px 0px 5px 0px rgb(152 115 255 / 40%) inset;
+}
+
+/*                                     table */
+/*                                genral y header */
+.title {
+  margin: 0;
+  font-size: 24px;
+  line-height: 33px;
+  margin-bottom: 10px;
+}
+
+.table {
+  margin-bottom: 40px;
+}
+
+@media (max-width: 750px) {
+  .table-wrap {
+    overflow-x: scroll;
+  }
+}
+
+.id,
+.full-name,
+.created-date,
+.last-changes,
+.contacts,
+.actions {
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: 400;
+  color: var(--grey-text);
+  padding-bottom: 8px;
+  padding-left: 20px;
+  text-align: start;
+  cursor: pointer;
+  transition: color 0.3s ease-in-out;
+}
+
+.id:focus,
+.full-name:focus,
+.date-time:focus,
+.last-changes:focus {
+  color: var(--violet);
+}
+
+.id:hover,
+.full-name:hover,
+.date-time:hover,
+.last-changes:hover {
+  color: var(--violet);
+}
+
+td {
+  height: 60px;
+  background-color: var(--white);
+  padding: 10px 0 10px 20px;
+  border-bottom: 1px solid var(--body-bg);
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 19px;
+}
+
+.id {
+  width: 7%;
+}
+
+.date-time,
+.last-changes,
+.contacts {
+  width: 15%;
+}
+
+.full-name {
+  width: 24%;
+}
+
+.contacts {
+  width: 16%;
+}
+
+@media (max-width: 750px) {
+  .section-table {
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+}
+
+/*                              arrows-sort */
+.z-a {
+  display: none;
+}
+
+.a-z {
+  color: var(--violet);
+  cursor: pointer;
+}
+
+.arrow {
+  display: inline-block;
+  position: relative;
+  color: var(--violet);
+  width: 10px;
+  height: 10px;
+  cursor: pointer;
+  margin-right: -3px;
+}
+
+.arrow::before {
+  content: "";
+  position: absolute;
+  left: 1px;
+  top: 3px;
+  border-left: 1px solid;
+  border-top: 1px solid;
+  border-color: var(--violet);
+  padding: 2px;
+  width: 3px;
+  height: 3px;
+  transform: rotate(45deg);
+  transition: transform 0.3s ease-in-out, top 0.3s ease-in-out;
+}
+
+.arrow::after {
+  content: "";
+  position: absolute;
+  left: 3px;
+  top: 3px;
+  width: 1px;
+  height: 7px;
+  background-color: var(--violet);
+  transform: rotate(0deg);
+  transition: transform 0.3s ease-in-out;
+}
+
+.arrow.active-arrow::before {
+  transform: rotate(225deg);
+  top: 5px;
+}
+
+.arrow.active-arrow::after {
+  transform: rotate(180deg);
+}
+
+/*                               table-body */
+#clients-list {
+  position: relative;
+}
+
+.id-text {
+  font-size: 12px;
+  line-height: 16px;
+}
+
+.grey-text {
+  color: var(--grey-text);
+}
+
+.time-pdd {
+  padding-left: 10px;
+}
+
+.btn-hash {
+  text-align: left;
+}
+
+.btn-hash:focus,
+.btn-hash:hover {
+  color: var(--violet2);
+}
+
+.first-date,
+.second-date {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+@media (max-width: 992px) {
+  .time-pdd {
+    padding-left: 0;
+  }
+
+  .first-date,
+  .second-date {
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+  }
+}
+
+/*                               table - contacts */
+.contacts-wrap {
+  display: flex;
+  width: 135px;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.contact-btn {
+  width: 16px;
+  height: 16px;
+  padding: 0;
+  border: none;
+  background: transparent no-repeat center;
+  opacity: 0.7;
+  transition: opacity 0.3s ease-in-out;
+  cursor: pointer;
+}
+
+.contact-btn:hover {
+  opacity: 1;
+}
+
+.vk {
+  background-image: url("../img/social/vk.svg");
+}
+
+.fb {
+  background-image: url("../img/social/fb.svg");
+}
+
+.phone {
+  background-image: url("../img/social/phone.svg");
+}
+
+.email {
+  background-image: url("../img/social/mail.svg");
+}
+
+.other {
+  background-image: url("../img/social/other.svg");
+}
+
+.contact-btn__wrap {
+  display: flex;
+  margin: 0;
+  padding: 0;
+}
+
+.tippy-link {
+  color: var(--white);
+  word-wrap: break-word;
+  font-size: 12px;
+  line-height: 12px;
+  border-bottom: 1px solid transparent;
+  transition: color 0.3s ease-in-out, border 0.3s ease-in-out;
+}
+
+.tippy-link:focus,
+.tippy-link:hover {
+  color: var(--violet);
+  border-bottom: 1px solid var(--violet);
+  transition: color 0.3s ease-in-out, border 0.3s ease-in-out;
+}
+
+.hidden-number {
+  border: 1px solid var(--violet);
+  border-radius: 50%;
+  font-size: 8px;
+  line-height: 11px;
+  background-color: transparent;
+  transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+
+.hidden-number:focus,
+.hidden-number:hover {
+  background-color: var(--violet);
+  color: var(--white);
+}
+
+/*                               table - actions */
+.actions-wrap {
+  display: flex;
+  gap: 30px;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+}
+
+@media (max-width: 992px) {
+  .actions-wrap {
+    flex-direction: column;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 5px;
+  }
+}
+
+.btn-delete,
+.btn-edit {
+  position: relative;
+  color: var(--black-text);
+  transition: color 0.3s ease-in-out;
+}
+
+.btn-change:focus,
+.btn-edit:hover {
+  color: var(--violet);
+}
+
+.btn-delete:focus,
+.btn-delete:hover {
+  color: var(--red);
+}
+
+.text-delete,
+.text-edit {
+  padding-left: 15px;
+  background: transparent no-repeat left;
+}
+
+.text-delete {
+  padding-right: 20px;
+}
+
+.text-delete {
+  background-image: url("../img/delete.svg");
+}
+
+.text-edit {
+  background-image: url("../img/change.svg");
+}
+
+.spinner-is-active {
+  background-image: none;
+}
+
+/*                                  button add client */
+.add {
+  margin: 0 auto;
+  margin-bottom: 40px;
+  border: 1px solid var(--violet2);
+  padding: 12px 26px;
+  background-color: transparent;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.add:focus,
+.add:hover {
+  background-color: var(--violet2);
+  transition: background-color 0.3s ease-in-out;
+}
+
+.add__text {
+  color: var(--violet);
+  padding-left: 5px;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 19px;
+  transition: color 0.3s ease-in-out, background-image 0.3s ease-in-out;
+}
+
+.add:focus .add__text,
+.add:hover .add__text {
+  color: var(--white);
+  transition: color 0.3s ease-in-out, background-image 0.3s ease-in-out;
+}
+
+.add__svg svg path {
+  fill: var(--violet);
+  transition: fill 0.3s ease-in-out;
+}
+
+.add:focus path,
+.add:hover path {
+  fill: var(--white);
+  transition: fill 0.3s ease-in-out;
+}
+
+/*                               modal__form add client */
+.site-modal {
+  position: fixed;
+  overflow-y: auto;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--modal-bg);
+  opacity: 0;
+}
+
+.site-modal__content {
+  max-width: 450px;
+  cursor: auto;
+  position: relative;
+  padding: 25px 30px;
+  margin: 20px auto;
+  margin-top: 100px;
+  box-shadow: 0px 0px 35px rgba(0, 0, 0, 0.15);
+  background-color: var(--white);
+  opacity: 0;
+}
+
+.modal-animation {
+  animation: fade 0.3s ease-in-out 0.3s forwards;
+}
+
+@keyframes fade {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.modal__close {
+  position: absolute;
+  right: 15px;
+  top: 15px;
+  width: 20px;
+  height: 20px;
+  box-shadow: none;
+  transition: box-shadow 0.3s ease-in-out;
+  background: url("../img/modal-close.svg") no-repeat center;
+}
+
+.modal__close:focus,
+.modal__close:hover {
+  box-shadow: 0px 0px 5px var(--violet);
+  transition: box-shadow 0.3s ease-in-out;
+}
+
+.modal__title {
+  margin: 0;
+  margin-bottom: 30px;
+  font-size: 18px;
+  line-height: 25px;
+}
+
+.modal__form {
+  width: 390px;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-floating {
+  position: relative;
+  margin-bottom: 32px;
+}
+
+.form-floating>label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  font-size: 14px;
+  padding-top: 5px;
+  pointer-events: none;
+  transform-origin: 0 0;
+  transition: opacity 0.1s ease-in-out, transform 0.1s ease-in-out;
+  color: var(--grey-text);
+}
+
+.form-floating>.modal__input:focus~label,
+.form-floating>.modal__input:not(:placeholder-shown)~label {
+  top: -10px;
+  transform: scale(0.85) translate(0.15rem, -0.5rem);
+}
+
+.modal__input::placeholder {
+  font-size: 0;
+}
+
+.modal__input {
+  display: block;
+  outline: none;
+  width: 100%;
+  border: none;
+  height: 28px;
+  border-bottom: 1px solid var(--modal-line);
+}
+
+.modal__form button {
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.modal__contact {
+  padding: 8px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0 -30px;
+  margin-bottom: 25px;
+  background-color: var(--contact-block);
+}
+
+.modal__btn-contact {
+  position: relative;
+  display: none;
+  padding: 0;
+  padding-left: 16px;
+  background: url("../img/add-contact.svg") no-repeat left center;
+  transition: color 0.3s ease-in-out, background-image 0.3s ease-in-out;
+}
+
+.modal__btn-contact.modal__btn-contact--active {
+  display: flex;
+}
+
+.modal__btn-contact:hover {
+  color: var(--violet2);
+  background: url("../img/add-contact-hover.svg") no-repeat left center;
+  transition: color 0.3s ease-in-out, background-image 0.3s ease-in-out;
+}
+
+.modal__label>span {
+  color: var(--violet2);
+}
+
+.modal__btn-save,
+.delete-modal__delete {
+  display: flex;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  padding: 13px 35px;
+  color: var(--white);
+  background-color: var(--violet2);
+  opacity: 0.7;
+  align-self: center;
+  margin-bottom: 8px;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.modal__btn-save:focus,
+.delete-modal__delete:focus,
+.modal__btn-save:hover,
+.delete-modal__delete:hover {
+  opacity: 1;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.modal__btn-back,
+.delete-modal__back {
+  font-size: 12px;
+  line-height: 16px;
+  align-self: center;
+  border-bottom: 1px solid var(--black-text);
+  transition: color 0.3s ease-in-out, border-color 0.3s ease-in-out;
+}
+
+.modal__btn-back:focus,
+.delete-modal__back:focus,
+.delete-modal__back:hover,
+.modal__btn-back:hover {
+  color: var(--violet);
+  border-bottom: 1px solid var(--violet);
+  transition: color 0.3s ease-in-out, border-color 0.3s ease-in-out;
+}
+
+
+/*                               modal form add contact item*/
+.contact {
+  position: relative;
+  width: 390px;
+  margin-bottom: 25px;
+}
+
+.contact::after {
+  position: absolute;
+  content: "";
+  visibility: hidden;
+  opacity: 0;
+}
+
+.contact::before {
+  position: absolute;
+  content: "";
+  visibility: hidden;
+  opacity: 0;
+}
+
+.contact.message::after {
+  content: "Only last 8 digit of phone number (format XXXXXXXX). No symbols, no letters are allowed";
+  position: absolute;
+  opacity: 1;
+  visibility: visible;
+  z-index: 5;
+  right: -23px;
+  top: 42px;
+  padding: 7px;
+  padding-left: 30px;
+  background: url('../img/circle.ico') no-repeat left 2px center;
+  background-size: 25px 25px;
+  font-size: 12px;
+  width: 300px;
+  height: max-content;
+  border: 1px solid black;
+  border-radius: 10px;
+  background-color: var(--white);
+  box-shadow: 7px 9px 9px 0px rgba(0, 0, 0, 0.45);
+  transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+}
+
+.contact.message::before {
+  content: "";
+  position: absolute;
+  opacity: 1;
+  visibility: visible;
+  z-index: 7;
+  right: 126px;
+  top: 37px;
+  border-left: 1px solid;
+  border-top: 1px solid;
+  border-color: black;
+  background-color: var(--white);
+  padding: 4px;
+  width: 3px;
+  height: 3px;
+  transform: rotate(45deg);
+  transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+}
+
+.contact__type {
+  position: relative;
+}
+
+.contact__type-btn {
+  height: 37px;
+  z-index: 1;
+  width: 134px;
+  position: relative;
+  padding: 10px 12px;
+  padding-right: 60px;
+  border: 1px solid var(--cont-border);
+  background-color: var(--grey-contact);
+  transition: background-color 0.3s ease-in-out;
+}
+
+.contact__type-btn::before {
+  content: "";
+  position: absolute;
+  right: 10px;
+  top: 19px;
+  border-left: 1px solid;
+  border-top: 1px solid;
+  border-color: var(--violet);
+  padding: 3px;
+  width: 4px;
+  height: 4px;
+  line-height: 0;
+  transform: rotate(45deg);
+  transition: transform 0.3s ease-in-out, top 0.3s ease-in-out;
+}
+
+.contact__list--active.contact__type-btn::before {
+  top: 15px;
+  transform: rotate(225deg);
+  transition: transform 0.3s ease-in-out, top 0.3s ease-in-out;
+}
+
+.contact__list {
+  z-index: 2;
+  position: absolute;
+  font-size: 12px;
+  line-height: 16px;
+  width: 100%;
+  min-width: 134px;
+  max-width: 134px;
+  top: 36px;
+  left: 0;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+  background-color: var(--cont-list-bg);
+  border: 1px solid var(--cont-border);
+}
+
+.contact__list.contact__list--active {
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+}
+
+.contact__item {
+  cursor: pointer;
+  padding: 5px 7px 5px 12px;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.contact__item:hover {
+  background-color: var(--grey-contact);
+  transition: background-color 0.3s ease-in-out;
+}
+
+.contact__input {
+  padding-left: 12px;
+  width: 100%;
+  height: 37px;
+  display: block;
+  outline: 1px solid var(--cont-border);
+  outline-offset: -1px;
+  margin-left: -1px;
+  z-index: 2;
+  border: none;
+  background-color: transparent;
+  transition: outline 0.3s ease-in-out;
+}
+
+.contact__input::placeholder {
+  font-size: 14px;
+  line-height: 19px;
+  color: var(--grey-text);
+}
+
+.contact__input:focus-visible {
+  outline: 1px solid var(--violet);
+  transition: outline 0.3s ease-in-out;
+}
+
+.contact__delete {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 27px;
+  height: 37px;
+  padding: 0 6px;
+  outline: 1px solid var(--cont-border);
+  outline-offset: -1px;
+  margin-left: -1px;
+  transition: outline 0.3s ease-in-out;
+}
+
+.contact__delete svg path {
+  fill: var(--cont-border);
+  transition: fill 0.3s ease-in-out;
+}
+
+.contact__delete:focus,
+.contact__delete:hover {
+  z-index: 3;
+  outline: 1px solid var(--red);
+  transition: outline 0.3s ease-in-out;
+}
+
+.contact__delete:focus svg path,
+.contact__delete:hover svg path {
+  fill: var(--red);
+  transition: fill 0.3s ease-in-out;
+}
+
+.modal__error {
+  max-width: 250px;
+  margin: 0 auto;
+  margin-bottom: 10px;
+  padding: 0;
+  font-weight: 400;
+  word-wrap: break-word;
+  font-size: 10px;
+  line-height: 14px;
+  color: var(--red);
+  text-align: center;
+}
+
+/*                                        modal - DELETE */
+.delete-modal__content {
+  top: 15%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+
+.delete-modal__title {
+  margin-bottom: 10px;
+}
+
+.delete-modal__text {
+  margin: 0;
+  margin-bottom: 25px;
+  padding: 0 50px;
+  font-size: 14px;
+  line-height: 19px;
+}
+
+.delete-client__name {
+  color: var(--violet2);
+}
+
+/*                                        modal - upload */
+.title-id {
+  padding-left: 10px;
+  color: var(--grey-text);
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 16px;
+}
+
+.delete-edit-btn {
+  position: relative;
+}
+
+.delete-edit-btn .spinner {
+  top: 2px;
+  left: -15px;
+}
+
+@media (max-width: 576px) {
+  .site-modal__content {
+    padding: 25px 15px;
+    max-width: 300px;
+  }
+
+  .modal__form,
+  .contact {
+    width: 270px;
+  }
+
+  .modal__contact {
+    margin: 0 -15px;
+    margin-bottom: 25px;
+  }
+
+  .contact__type-btn {
+    width: 110px;
+  }
+}
+
+/*                                           preloaders */
+.preloader {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+  background-color: var(--white);
+}
+
+#loader {
+  width: 40px;
+  height: 40px;
+  animation: loading 2s linear infinite;
+}
+
+@keyframes loading {
+  from {
+    transform: rotate(0);
+  }
+
+  50% {
+    transform: rotate(180deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+#loader {
+  animation: loading 2s linear infinite;
+}
+
+@keyframes loading {
+  from {
+    transform: rotate(0);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+
+.spinner {
+  display: none;
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  left: 20px;
+  top: 14px;
+}
+
+.spinner svg {
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.spinner-tbtn-animation {
+  display: none;
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  left: 0;
+  top: 2px;
+}
+
+.spinner-tbtn-animation svg {
+  animation: circle 2s linear infinite;
+}
+
+@keyframes circle {
+  from {
+    transform: rotate(0);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/*                                            search */
+
+.header__wrap {
+  position: relative;
+  width: 100%;
+}
+
+.search-list {
+  display: none;
+  list-style: none;
+  height: max-content;
+  margin: 0;
+  padding: 10px;
+  position: absolute;
+  width: 57.5%;
+  top: 47px;
+  left: 120px;
+  z-index: 5;
+  background-color: var(--white);
+}
+
+mark {
+  background-color: var(--violet);
+  color: var(--white);
+}
+
+.div-name,
+.div-id {
+  padding: 10px 6px;
+  width: 100%;
+  height: 40px;
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: border-color 0.3s ease-in-out;
+}
+
+.div-name:focus,
+.div-id:focus,
+.div-name:hover,
+.div-id:hover,
+.div-name:focus-visible,
+.div-id:focus-visible {
+  outline: none;
+  border-color: var(--violet);
+}
+
+
+/*                                                 clietn card */
+
+.wrapper {
+  margin-bottom: 30px;
+}
+
+.card__photo {
+  width: 160px;
+  height: 160px;
+  background: url('../img/stoppper.jpg') no-repeat center / cover;
+  margin-right: 50px;
+}
+
+.cadr__name {
+  width: 100px;
+  height: max-content;
+  font-size: 22px;
+  line-height: 35px;
+}
+
+.card__contacts-item {
+  margin-bottom: 15px;
+}
+
+.card__cont-val {
+  color: var(--violet2);
+}

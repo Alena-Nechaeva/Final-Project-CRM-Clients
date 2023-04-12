@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/tippy-6.css">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="https://unpkg.com/@popperjs/core@2/dist/umd/popper.min.js"></script>
+  <script src="https://unpkg.com/tippy.js@6/dist/tippy-bundle.umd.js"></script>
+  <script type="module" defer src="js/main.js"></script>
+  <link href="img/favic.ico" rel="icon" sizes="21x25" type="image/ico">
+  <title>Clients</title>
+</head>
+
+<body>
+  <header class="header">
+    <div class="header__wrap container">
+      <div class="header__content flex">
+        <a href="#" class="logo-link flex">
+          <img src="img/logo.svg" alt="logo">
+        </a>
+        <input class="search" type="search" placeholder="Enter name or ID number" disabled>
+      </div>
+      <ul class="search-list"></ul>
+    </div>
+  </header>
+
+  <section class="section-table">
+    <div class="container">
+      <h1 class="title">Clients</h1>
+      <div class="table-wrap">
+        <table class="table" cellspacing="0">
+          <tr class="table__header">
+            <th class="id" data-column="idNumber">
+              ID <span class="arrow"></span>
+            </th>
+            <th class="full-name" data-column="fullName">
+              Name and Surname
+              <span class="arrow"></span>
+              <span class="a-z">A-Z</span>
+              <span class="z-a">Z-A</span>
+            </th>
+            <th class="created-date" data-column="createdDate">
+              Date and time of creation <span class="arrow"></span>
+            </th>
+            <th class="last-changes" data-column="updateDate">
+              Date and time of last changes <span class="arrow"></span>
+            </th>
+            <th class="contacts" data-column="contacts">Contacts</th>
+            <th class="actions" data-column="actions">Actions</th>
+          </tr>
+          <tbody id="clients-list"></tbody>
+        </table>
+      </div>
+
+      <button class="btn-reset add flex">
+        <span class="add__svg">
+          <svg width="23" height="16" viewBox="0 0 23 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M14.5 8C16.71 8 18.5 6.21 18.5 4C18.5 1.79 16.71 0 14.5 0C12.29 0 10.5 1.79 10.5 4C10.5 6.21 12.29 8 14.5 8ZM5.5 6V3H3.5V6H0.5V8H3.5V11H5.5V8H8.5V6H5.5ZM14.5 10C11.83 10 6.5 11.34 6.5 14V16H22.5V14C22.5 11.34 17.17 10 14.5 10Z" />
+          </svg>
+        </span>
+        <span class="add__text">Add new client</span>
+      </button>
+    </div>
+  </section>
+</body>
+
+</html>
