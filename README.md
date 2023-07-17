@@ -14,6 +14,4 @@ By default it's shown 4 contact options on the table for each client and a click
 Contact information is displayed in tooltip on hover event
 There is a loader indicator to allow to fetch data from API.
 
-Used technologies:
-1. Vanilla JavaScript.
-2. HTML / CSS.
+![clients](https://github.com/Alena-Nechaeva/Final-Project-CRM-Clients/assets/100653761/6320aa40-a604-4774-b2f5-8d6aed1268af)
