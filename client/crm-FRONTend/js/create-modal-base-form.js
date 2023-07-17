@@ -1,6 +1,6 @@
-import { createContactItem } from "./create-contact-item.js";
+import {createContactItem} from "./create-contact-item.js";
 
-export function createModaBaselForm() {
+export function createModalBaseForm() {
   const modalTitle = document.createElement('h2'),
     modalCloseBtn = document.createElement('button'),
     form = document.createElement('form'),
@@ -67,6 +67,7 @@ export function createModaBaselForm() {
   labelLastName.textContent = 'Second surname';
   addContactBtn.textContent = 'Add contact';
   saveBtn.textContent = 'Save';
+  saveBtn.type = 'submit';
   cancelBtn.textContent = 'Cancel';
   requiredName.textContent = '*';
   requiredSurname.textContent = '*';

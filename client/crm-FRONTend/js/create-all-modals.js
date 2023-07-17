@@ -1,11 +1,11 @@
-import { createModaBaselForm } from './create-modal-base-form.js';
-import { createContactItem, checkContacts } from './create-contact-item.js';
-import { editClient, deleteClientItem, createClient } from './client-api.js';
-import { render } from './main.js'
+import {createModalBaseForm} from './create-modal-base-form.js';
+import {createContactItem, checkContacts} from './create-contact-item.js';
+import {editClient, deleteClientItem, createClient} from './client-api.js';
+import {render} from './main.js'
 
 //                                   function for ADD new client to the table
 export function addClientModal() {
-  const creaateForm = createModaBaselForm(),
+  const createForm = createModalBaseForm(),
     modal = document.createElement('div'),
     modalConntent = document.createElement('div');
 
@@ -20,13 +20,13 @@ export function addClientModal() {
   // nesting of elements
   modal.append(modalConntent);
   modalConntent.append(
-    creaateForm.modalCloseBtn,
-    creaateForm.modalTitle,
-    creaateForm.form,
+    createForm.modalCloseBtn,
+    createForm.modalTitle,
+    createForm.form,
   );
 
   // submit form
-  creaateForm.form.addEventListener('submit', async (e) => {
+  createForm.form.addEventListener('submit', async (e) => {
     e.preventDefault();
     const contactTypes = document.querySelectorAll('.contact__type-btn');
     const contactValues = document.querySelectorAll('.contact__input');
@@ -43,9 +43,9 @@ export function addClientModal() {
     }
 
     // obj structure
-    clientObj.name = creaateForm.inputName.value;
-    clientObj.surname = creaateForm.inputSurname.value;
-    clientObj.lastName = creaateForm.inputLastName.value;
+    clientObj.name = createForm.inputName.value;
+    clientObj.surname = createForm.inputSurname.value;
+    clientObj.lastName = createForm.inputLastName.value;
     clientObj.contacts = contactsArr;
 
     await createClient(clientObj);
@@ -60,9 +60,15 @@ export function addClientModal() {
   });
 
   // action for close btn
-  creaateForm.modalCloseBtn.addEventListener('click', () => {
+  createForm.modalCloseBtn.addEventListener('click', () => {
     modal.remove();
   });
+
+  // action for cancel btn
+  createForm.cancelBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+    modal.remove();
+  })
 
   return modal;
 }
@@ -73,7 +79,7 @@ export function editClientModal(client) {
     editModalContent = document.createElement('div'),
     editModalTitle = document.createElement('h2'),
     titleIdSpan = document.createElement('span'),
-    createForm = createModaBaselForm(),
+    createForm = createModalBaseForm(),
     deleteSpinner = deleteClientModal(client);
 
   // add clasess

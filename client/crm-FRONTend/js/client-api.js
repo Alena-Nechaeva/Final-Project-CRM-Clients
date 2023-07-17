@@ -1,4 +1,4 @@
-import { Client } from './class-client.js';
+import {Client} from './Client.js';
 
 // get data from server and convert JSON to arr of classes
 export async function getClientsData() {
@@ -6,7 +6,7 @@ export async function getClientsData() {
   const result = await response.json();
   //using map and destructuring assignment we create array of classes instead of array of objects
   let clientsData = result.map((clientData) => {
-    const { id, name, surname, lastName, createdAt, updatedAt, contacts } = clientData;
+    const {id, name, surname, lastName, createdAt, updatedAt, contacts} = clientData;
     return new Client(
       id,
       name,

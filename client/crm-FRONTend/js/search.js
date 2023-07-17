@@ -1,7 +1,7 @@
 // create list of all elements by taking data from Local storage. We use this function in main.js.
 // In search inpit you can enter any number of ID or any letter of name
 
-import { Client } from "./class-client.js";
+import {Client} from "./Client.js";
 
 //this function create search-list of Names and Ids
 export function createSearchList() {
@@ -9,7 +9,7 @@ export function createSearchList() {
 
   const localData = localStorage.getItem('clientsList'); // get data from localStorage
   const clientsArrLS = JSON.parse(localData).map((clientData) => {
-    const { id, name, surname, lastName, createdAt, updatedAt, contacts } = clientData;
+    const {id, name, surname, lastName, createdAt, updatedAt, contacts} = clientData;
     return new Client(id, name, surname, lastName, createdAt, updatedAt, contacts);
   })
 
